@@ -155,7 +155,7 @@ function CompactMenuItems ({darkTheme}) {
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<CampaignRounded sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Marketing</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem onClick={() => window.open('/messaing', '_self')}>
+      <MenuItem onClick={() => window.open('/messaging', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<ChatBubble sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Messaging</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
