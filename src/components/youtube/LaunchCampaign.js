@@ -47,7 +47,7 @@ export default function LaunchCampaign() {
                             </Stack>
                         </Stack>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={12} md={5}>
                         <Stack spacing={2} sx={{fontSize:16, marginTop:1}} direction={{xs:'column'}} divider={<Divider sx={{background:'text.primary', opacity:1, height:'200px', marginY:'auto !important', display:{ xs:'none'}}} 
                             orientation="vertical" flexItem />}>
                                 <ContentSectionWithMUIIcon title={"Google Ads API"} icon={<Google sx={{fontSize:20, color: blue[700]}}/>}>
