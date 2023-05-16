@@ -7,12 +7,15 @@ import { Divider, ListItemText, MenuItem, MenuList } from '@mui/material';
 import PopperMenu from '@/widgets/DropDownMenu';
 import { AccountBox, AccountBoxRounded, Call, Campaign, CampaignRounded, ChatBubble, Cloud, ExpandLess, ExpandMore, Menu, MessageOutlined, WhatsApp, YouTube } from '@mui/icons-material';
 import { primaryThemeColor } from '@/widgets/color';
+import { red } from '@mui/material/colors';
+import { HiatusContext } from '@/pages/_app';
 
 export function HeaderBand({darkTheme=true}) {
   const logo = darkTheme ? <WhiteLogo/> : <BlueLogo/>
   const position = darkTheme ? {} :{left:0}
+  const onHiatus = React.useContext(HiatusContext);
   return (
-    <Box sx={{width:{xs:1, lg:.75}, paddingX:{lg: 0, md:1, xs:2}, paddingY:'20px', color:'#FFF', fontWeight:450, position:darkTheme? 'absolute': 'relative', top:0,  ...position, zIndex:10}}>
+    <Box sx={{width:{xs:1, lg:.75}, paddingX:{lg: 0, md:1, xs:2}, marginTop:onHiatus?'24px':0, paddingY:'20px', color:'#FFF', fontWeight:450, position:darkTheme? 'absolute': 'relative', top:0,  ...position, zIndex:10}}>
       <Stack direction='row' justifyContent= 'space-between'>
         {logo}
         <Stack direction='row' spacing={{lg:10, sm:10}} justifyContent='space-between' alignItems='center' sx={{display:{md:'flex', xs:'none'}}}>
@@ -22,9 +25,9 @@ export function HeaderBand({darkTheme=true}) {
                 <MarketingMenu darkTheme={darkTheme}/>
               </Box>
             </HeaderMenuItem>
-            <HeaderMenuItem label='Messaging' darkTheme={darkTheme}/>
-            <HeaderMenuItem label='Cloud Services' darkTheme={darkTheme}/>
-            <HeaderMenuItem label='Contact Us' darkTheme={darkTheme}/>
+            <HeaderMenuItem label='Messaging' darkTheme={darkTheme} onClick={() => window.open('/messaging', '_self')}/>
+            <HeaderMenuItem label='Cloud Services' darkTheme={darkTheme} onClick={() => window.open('/cloudServices', '_self')}/>
+            <HeaderMenuItem label='Contact Us' darkTheme={darkTheme} onClick={() => window.open('/contactUs', '_self')}/>
           </Stack>
           <SignInButton darkTheme={darkTheme}/>
         </Stack>
@@ -67,9 +70,7 @@ function SignInButton({darkTheme}) {
     },
   }
   return (
-    <KuredButton label='Sign In' sx={{
-      ...style
-    }}/>
+    <KuredButton label='Sign In' sx={{...style}} onClick={() => window.open('/signIn', '_self')}/>
   )
 }
 
@@ -105,11 +106,11 @@ function PopOverMenuItemText({icon, children, darkTheme}){
 function MarketingMenuItems({darkTheme}) {
   return (
     <>
-      <MenuItem onClick={() => window.open('/video_marketing', '_self')}>
+      <MenuItem onClick={() => window.open('/videoMarketing', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<YouTube sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>YouTube</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:1}}/>
-      <MenuItem>
+      <MenuItem onClick={() => window.open('/messaging', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<ChatBubble sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>SMS / Whatsapp</PopOverMenuItemText>
       </MenuItem>
     </>
@@ -150,23 +151,23 @@ function CompactMenuButton({darkTheme, onClick = ()=>{}}) {
 function CompactMenuItems ({darkTheme}) {
   return (
     <PopOverMenu darkTheme={darkTheme} showDivider = {false}>
-      <MenuItem>
+      <MenuItem onClick={() => window.open('/videoMarketing', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<CampaignRounded sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Marketing</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem>
+      <MenuItem onClick={() => window.open('/messaing', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<ChatBubble sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Messaging</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem>
+      <MenuItem onClick={() => window.open('/cloudServices', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<Cloud sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Cloud Services</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem>
+      <MenuItem onClick={() => window.open('/contactUs', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<Call sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Contact Us</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem>
+      <MenuItem onClick={() => window.open('/signIn', '_self')}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<AccountBoxRounded sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Sign In</PopOverMenuItemText>
       </MenuItem>
     </PopOverMenu>

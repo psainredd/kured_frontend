@@ -27,15 +27,17 @@ export default function SinglePlatformSection() {
             </Grid>
           </Grid>
           <KuredButton label='Contact Us' sx={{
-            marginTop: 4,
-            color: '#FFFFFF', 
-            backgroundColor: '#1976d2 !important',
-            '&:hover, &:active': 
-              {
-                backgroundColor: 'rgba(10, 31, 64, 0.25) !important',
-                color:'#1976d2  !important'
-              }
-          }}/>
+              marginTop: 4,
+              color: '#FFFFFF', 
+              backgroundColor: '#1976d2 !important',
+              '&:hover, &:active': 
+                {
+                  backgroundColor: 'rgba(10, 31, 64, 0.25) !important',
+                  color:'#1976d2  !important'
+                }
+            }}
+            onClick={() => window.open('/contactUs', '_self')}
+          />
           <Stack sx={{width:'100%'}} alignItems='center' justifyContent='center' spacing={2}>
             <Stack direction='row' spacing={{md:4, xs:0}} alignItems='center'>
               <Box sx={{display:{md:'block', xs:'none'}}}>

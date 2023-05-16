@@ -36,7 +36,7 @@ export default function PopperMenu({children, onClick = (e) => {}, label, sx, pl
 
   return (
     <Box>
-      <Link underline='none' onMouseEnter= {onMouseEnter} onClick={(e) => {onMouseEnter(e, true); onClick()}} sx={{paddingBottom:2, ...sx}}>
+      <Link underline='none' href="#" onMouseEnter= {onMouseEnter} onClick={(e) => {onMouseEnter(e, true); onClick()}} sx={{paddingBottom:2, ...sx}}>
         {label}
       </Link>
       <Popper

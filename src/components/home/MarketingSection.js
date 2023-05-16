@@ -41,22 +41,26 @@ export default function MarketingSection() {
             </Grid>
             <Stack direction='row' spacing={2}>
               <KuredButton label='Contact Us' sx={{
-                color: '#FFFFFF', 
-                backgroundColor: '#1976d2',
-                '&:hover, &:active': 
-                  {
-                    color:'#1976d2'
-                  }
-              }}/>
+                  color: '#FFFFFF', 
+                  backgroundColor: '#1976d2',
+                  '&:hover, &:active': 
+                    {
+                      color:'#1976d2'
+                    }
+                }}
+                onClick={() => window.open('/contactUs', '_self')}
+              />
               <KuredButton label='Learn more' sx={{
-                color: blue[700], 
-                backgroundColor: 'none',
-                '&:hover, &:active': 
-                  {
-                    backgroundColor:'#1976d2 !important',
-                    color:'#FFF'
-                  }
-              }}/>  
+                  color: blue[700], 
+                  backgroundColor: 'none',
+                  '&:hover, &:active': 
+                    {
+                      backgroundColor:'#1976d2 !important',
+                      color:'#FFF'
+                    }
+                }}
+                onClick={() => window.open('/videoMarketing', '_self')}
+              />  
             </Stack>
             <Grid container sx={{paddingX:3}} spacing={2}>
               <Grid item xs={12} md={3.5}>

@@ -28,7 +28,7 @@ export default function MarketingSection() {
                   {
                     color:'#1976d2'
                   }
-              }}/>
+              }} onClick={() => window.open('/contactUs', '_self')}/>
             <Conversation/>  
           </Stack>
         </Box>

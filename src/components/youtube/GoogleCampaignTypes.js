@@ -46,22 +46,15 @@ export default function GoogleCampaignTypes() {
             </Stack>
             <Stack direction='row' spacing={2}>
               <KuredButton label='Contact Us' sx={{
-                color: '#FFFFFF', 
-                backgroundColor: '#1976d2',
-                '&:hover, &:active': 
-                  {
-                    color:'#1976d2'
-                  }
-              }}/>
-              <KuredButton label='Learn more' sx={{
-                color: blue[700], 
-                backgroundColor: 'none',
-                '&:hover, &:active': 
-                  {
-                    backgroundColor:'#1976d2 !important',
-                    color:'#FFF'
-                  }
-              }}/> 
+                  color: '#FFFFFF', 
+                  backgroundColor: '#1976d2',
+                  '&:hover, &:active': 
+                    {
+                      color:'#1976d2'
+                    }
+                }}
+                onClick={() => window.open('/contactUs', '_self')}
+              /> 
             </Stack>
           </Stack>
         </Box>

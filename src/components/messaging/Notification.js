@@ -41,7 +41,7 @@ export default function NotificationSection() {
                         backgroundColor: `none !important`,
                         color:`${blue[700]} !important`
                     }
-                    }}/>  
+                    }} onClick={() => window.open('/contactUs', '_self')}/>  
                 <WhatsAppSection/>
             </Stack>
         </Box>

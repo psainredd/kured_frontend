@@ -1,9 +1,9 @@
 import { Box, Stack } from '@mui/material';
 import { HeaderBand } from './HeaderBand';
 
-export default function TopSection({children}) {
+export default function TopSection({children, fullScreenHeight=true}) {
     return (
-        <Box sx={{height:{lg:'100vh', md:'100%'}}}>
+        <Box sx={{height:{lg:fullScreenHeight?'100vh':'100%', md:'100%'}}}>
             <Box
                 sx={{
                     backgroundColor:'#F0F0F0',

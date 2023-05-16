@@ -92,7 +92,7 @@ export default function MessagingSection() {
                     backgroundColor: 'rgba(10, 31, 64, 0.25) !important',
                     color:`${lightBlue[300]}  !important`
                   }
-              }} href='/demo'/>
+              }} onClick={() => window.open('/contactUs', '_self')}/>
               <KuredButton label='Learn more' sx={{
                 color: `white`, 
                 backgroundColor: 'none !important',
@@ -101,7 +101,7 @@ export default function MessagingSection() {
                     backgroundColor: 'rgba(255, 255, 255, 1) !important',
                     color:`#0a2540 !important`  
                   }
-              }} href = '/'/>
+              }} onClick={() => window.open('/messaging', '_self')}/>
             </Stack>
           </Stack>
         </Box>

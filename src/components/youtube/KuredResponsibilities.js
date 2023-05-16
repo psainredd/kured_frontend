@@ -27,15 +27,17 @@ export default function KuredResponsibilities() {
                     </Grid>
                 </Grid>
                 <KuredButton label='Know more' sx={{
-                    marginTop: 4,
-                    color: '#FFFFFF', 
-                    backgroundColor: `${blue[700]}`,
-                    '&:hover, &:active': 
-                    {
-                        backgroundColor: `none !important`,
-                        color:`${blue[700]} !important`
-                    }
-                    }}/>
+                        marginTop: 4,
+                        color: '#FFFFFF', 
+                        backgroundColor: `${blue[700]}`,
+                        '&:hover, &:active': 
+                        {
+                            backgroundColor: `none !important`,
+                            color:`${blue[700]} !important`
+                        }
+                    }}
+                    onClick={() => window.open('/contactUs', '_self')}
+                />
                 <Box sx={{backgroundColor:'#FFF', boxShadow: '1px 6px 14px rgb(0 0 0 / 20%) !important', zIndex:10, borderRadius:3, padding:2, overflow:'hidden'}}>
                     <ButtonsTabPanel labels={steps}>
                         <CreateCampaign/>

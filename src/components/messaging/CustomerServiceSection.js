@@ -29,7 +29,7 @@ export default function PatientSupport() {
                   {
                     color:'#1976d2'
                   }
-              }}/>
+              }} onClick={() => window.open('/contactUs', '_self')}/>
           </Stack>
         </Box>
       </Box>

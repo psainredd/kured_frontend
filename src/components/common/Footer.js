@@ -11,9 +11,9 @@ export default function FooterSection() {
           <Stack direction={{sm:'row', xs:'column'}} justifyContent='space-between' spacing={2}alignItems='center'>
             <Link href='\'><img src='/logo_blue.svg' width='125'/></Link>
             <Stack direction='row' justifyContent='space-around' spacing={10} sx={{fontSize:14, fontWeight:400, paddingLeft:{xs:8, md:0}}} alignItems='center'>
-              <Link href='\' underline='none'>About</Link>
-              <Link href='\' underline='none'>Contact</Link>
-              <Link href='\' underline='none'>Terms & Conditions</Link>
+              <Link href='/about' underline='none'>About</Link>
+              <Link href='/contactUs' underline='none'>Contact</Link>
+              <Link href='/termsNconditions' underline='none'>Terms & Conditions</Link>
             </Stack>
             <Stack direction='row' spacing={1}>
               <FacebookIcon sx={{fontSize:18}}/>

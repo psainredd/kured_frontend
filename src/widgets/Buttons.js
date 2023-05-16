@@ -20,7 +20,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { ArrowForward } from '@mui/icons-material';
+import { ArrowBack, ArrowBackIos, ArrowForward } from '@mui/icons-material';
+import { primaryThemeColor } from './color';
 
 export const KuredOutlinedSecondaryButton = styled(Button)( {
     fontSize:15,
@@ -535,3 +536,47 @@ export const StyledButton = styled(KuredMenuItemWithEffects)({
         color:'#FFFFFF',
     },
   })
+
+  export function KuredButtonWithStartIcon({onClick = (e) => {}, onMouseEnter = (e) => {}, sx, label='Go Back', ...props}) {
+    const [mouseOver, setMouseOver] = React.useState(false);
+    const arrowBackIcon = mouseOver? 
+                              <ArrowBack sx= {{fontSize:'12px !important'}}/> :
+                                <ArrowBackIos sx={{fontSize:'10px !important'}}/>;
+
+    const onMouseOver = (e) => {
+        setMouseOver(true);
+        onMouseEnter(e);
+    }
+
+    const onMouseLeave = (e) => {
+        setMouseOver(false);
+    }
+    
+    return (
+        <Button disableFocusRipple disableRipple
+            startIcon={arrowBackIcon}
+            sx={{
+                borderRadius: `20px !important`,
+                textTransform: 'none',
+                backgroundColor: `#FFF !important`,
+                width: 'fit-content',
+                height: 'fit-content',
+                paddingX: `16px !important`,
+                paddingY:`4px !important`,
+                fontSize: 13,
+                fontWeight: 500,
+                '&:hover, &:active': 
+                {
+                  background: '#FFFFFF00 !important',
+                  color:`${primaryThemeColor}  !important`
+                },
+                ...sx
+            }}
+            {...props}
+            onClick={(e) => onClick(e)}
+            onMouseLeave={(e) => onMouseLeave(e)}
+            onMouseEnter={(e) => onMouseOver(e)}>
+            {label}
+        </Button>
+    )
+}

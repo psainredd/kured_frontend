@@ -41,13 +41,17 @@ export default function HomePageTopSection() {
                     color:'#0a2540  !important',
                     borderColor:'#FFF'
                   }
-                }}/>
+                }}
+                onClick={() => window.open('/signIn', '_self')}
+              />
               <KuredButton label='Contact Us' sx={{
                 color: '#0a2540',
                 backgroundColor: '#FFF !important',
                 border:1,
                 borderColor:'#FFF'
-                }}/>
+                }}
+                onClick={() => window.open('/contactUs', '_self')}
+              />
             </Stack>
           </Stack>
         </Stack>

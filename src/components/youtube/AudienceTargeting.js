@@ -17,7 +17,7 @@ function CustomTabsPanel({labels, children, onTabChange= (newValue)=>{} ,...prop
     return(
         <Box sx={{width: 1}}>
           <Grid container alignItems="flex-start" justify="center">
-            <Grid xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <Stack sx={{width: {xs:1}, paddingRight:2, margin: {md: 'auto', xs:'0'}, paddingY:2, position:'relative', color:'white'}} spacing={3} justifyContent={'center'}>
                 <Box sx={{color: lightBlue[300], fontSize: 16, fontWeight: 700}}>
                     Audience Targeting
@@ -137,7 +137,8 @@ function SideSection() {
       background:'#FFF',  
       width: 1,
       }} onMouseEnter={() => onMouseEnter()} onMouseLeave = {() => onMouseLeave()}>
-      <video src='/audience_targeting.mp4' ref={vidRef} width='100%' borderRadius={3} sx={{
+      <video src='/audience_targeting.mp4' ref={vidRef} width='100%' sx={{
+          borderRadius:3,
           display:{md:'block', xs:'none'}
         }}/>  
       <Stack sx={{

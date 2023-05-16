@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { blue } from '@mui/material/colors';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const theme = createTheme({
     palette: {
@@ -49,15 +52,17 @@ const theme = createTheme({
     }
   });
 
+export const HiatusContext = createContext(false);
+
 export default function MyApp({ Component, pageProps }) {
     return (    
     <ThemeProvider theme={theme}>
         <CssBaseline/>
-          <>
+          <HiatusContext.Provider value={publicRuntimeConfig.hiatusMode}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Component {...pageProps} />
               </LocalizationProvider>
-          </>
+          </HiatusContext.Provider>
     </ThemeProvider>
   )
 }
