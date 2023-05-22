@@ -13,12 +13,12 @@ export default function FooterSection() {
             <Stack direction='row' justifyContent='space-around' spacing={10} sx={{fontSize:14, fontWeight:400, paddingLeft:{xs:8, md:0}}} alignItems='center'>
               <Link href='/about' underline='none'>About</Link>
               <Link href='/contactUs' underline='none'>Contact</Link>
-              <Link href='/termsNconditions' underline='none'>Terms & Conditions</Link>
+              <Link href='/' underline='none'>Terms & Conditions</Link>
             </Stack>
             <Stack direction='row' spacing={1}>
               <FacebookIcon sx={{fontSize:18}}/>
               <Mail sx={{fontSize:18}}/>
-              <LinkedInIcon sx={{fontSize:18}}/>
+              <Link href='https://www.linkedin.com/company/kured-in?original_referer=' underline='none'><LinkedInIcon sx={{fontSize:18}}/></Link>
               <YouTube sx={{fontSize:18}}/>
             </Stack>
           </Stack>

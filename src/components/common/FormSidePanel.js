@@ -5,7 +5,7 @@ import { blue } from "@mui/material/colors";
 
 export default function FormSidePanel({title, actionSubtitle, actionButtonLabel, actionButtonOnClick = (e) =>{}, children}) {
     return (
-      <Box sx={{mt:{md:4, xs:0}, mb:4, width:{lg:.75, xs:1}}}>
+      <Box sx={{mt:{md:5, xs:0}, mb:4, width:{lg:.75, xs:1}}}>
         <Grid container spacing={2} justifyContent={{md:'flex-start', xs:'center'}} alignItems={{md:'flex-start', xs:'center'}}>
           <Grid item xs={12} md={6}>
             <Stack spacing={2} justifyContent={'space-between'} alignItems={'space-between'} sx={{paddingX:{md:0, xs:3}, display:{md:'block', xs:'none'}}}>
