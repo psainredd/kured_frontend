@@ -7,7 +7,7 @@ import { blue, green, lightBlue, orange, red } from '@mui/material/colors';
 import { Grid, Slide, Stack } from '@mui/material';
 import { CheckItem, PointItem } from '@/widgets/Text';
 import { MaskedImage } from '@/widgets/Image';
-import { primaryThemeColor } from '@/widgets/color';
+import { primaryThemeColor } from '@/widgets/Color';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

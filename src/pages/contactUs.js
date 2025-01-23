@@ -2,11 +2,11 @@ import { Autocomplete, Box, Grid, InputAdornment, Link, Stack, TextField } from 
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import * as React from 'react'
 import { blue, grey } from "@mui/material/colors"
-import PageLayout from "@/components/common/Layout";
-import TopSection from "@/components/common/TopSection";
+import { AnonymousUserPageLayout } from "@/components/common/Layout";
+import AnonymousUserTopSection from "@/components/common/AnonymousUserTopSection";
 import { KuredButton } from "@/widgets/Buttons";
 import { CheckItem } from "@/widgets/Text";
-import { primaryThemeColor } from "@/widgets/color";
+import { primaryThemeColor } from "@/widgets/Color";
 import { ValidateEmail, ValidateMobileNumer, isNumber } from "@/util"
 import { HiatusContext } from "./_app";
 import { EmailId, InputField, PhoneNumber, Select } from "@/widgets/Inputs";
@@ -20,11 +20,11 @@ const states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhatt
 
 export default function ContactUs() {
     return (
-        <PageLayout title={'Kured | Contact Us'}>
-            <TopSection fullScreenHeight={false}>
+        <AnonymousUserPageLayout title={'Kured | Contact Us'}>
+            <AnonymousUserTopSection fullScreenHeight={false}>
                 <TopSectionDetails/>
-            </TopSection>
-        </PageLayout>
+            </AnonymousUserTopSection>
+        </AnonymousUserPageLayout>
     )
 }
 

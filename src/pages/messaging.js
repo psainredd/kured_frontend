@@ -1,5 +1,5 @@
-import PageLayout from "@/components/common/Layout";
-import TopSection from "@/components/common/TopSection";
+import { AnonymousUserPageLayout } from "@/components/common/Layout";
+import AnonymousUserTopSection from "@/components/common/AnonymousUserTopSection";
 import PatientSupport from "@/components/messaging/CustomerServiceSection";
 import MessagingTopSectionDetails from "@/components/messaging/MessagingTopSection";
 import NotificationSection from "@/components/messaging/Notification";
@@ -9,15 +9,15 @@ import NextStepsSection from "@/components/youtube/NextSteps";
 
 export default function Home() {
     return (
-      <PageLayout title ='Kured | Messaging'>
-          <TopSection>
+      <AnonymousUserPageLayout title ='Kured | Messaging'>
+          <AnonymousUserTopSection>
               <MessagingTopSectionDetails/>
-          </TopSection>
+          </AnonymousUserTopSection>
           <NotificationSection/>
           <WhatsAppIntro/>
           <PatientSupport/>
           <MarketingSection/>
           <NextStepsSection/>
-      </PageLayout>      
+      </AnonymousUserPageLayout>      
     )
   }

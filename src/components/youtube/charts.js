@@ -10,7 +10,7 @@ import {
   ArcElement,
 } from 'chart.js';
 import { Bar, Pie } from 'react-chartjs-2';
-import PageLayout from '@/components/common/Layout';
+import AnonymousUserPageLayout from '@/components/common/Layout';
 import { blue, cyan, green, lightBlue, purple, red, yellow } from '@mui/material/colors';
 import { Box, Stack } from '@mui/material';
 import { KuredCircularProgress } from '@/widgets/CircularProgress';

@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { Box, Button, Collapse, IconButton, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 import { KuredButton } from '@/widgets/Buttons'
 import { BlueLogo, WhiteLogo } from './Logo'
 import Paper from '@mui/material/Paper';
 import { Divider, ListItemText, MenuItem, MenuList } from '@mui/material';
 import PopperMenu from '@/widgets/DropDownMenu';
-import { AccountBox, AccountBoxRounded, Call, Campaign, CampaignRounded, ChatBubble, Cloud, ExpandLess, ExpandMore, Menu, MessageOutlined, WhatsApp, YouTube } from '@mui/icons-material';
-import { primaryThemeColor } from '@/widgets/color';
-import { red } from '@mui/material/colors';
+import { AccountBoxRounded, Call, CampaignRounded, ChatBubble, Cloud, Menu, YouTube } from '@mui/icons-material';
+import { primaryThemeColor } from '@/widgets/Color';
 import { HiatusContext } from '@/pages/_app';
 
-export function HeaderBand({darkTheme=true}) {
+export default function AnonymousUserHeaderBand({darkTheme=true}) {
   const logo = darkTheme ? <WhiteLogo/> : <BlueLogo/>
   const position = darkTheme ? {} :{left:0}
   const onHiatus = React.useContext(HiatusContext);
@@ -131,10 +130,9 @@ function CompactMenuButton({darkTheme, onClick = ()=>{}}) {
         sx={{
           borderRadius: `20px !important`,
           textTransform: 'none',
+          px:0,
           color : darkTheme ? '#0a2540' : '#FFF',
           backgroundColor : darkTheme ? '#FFF !important' : '#0a2540 !important',
-          width: 'fit-content',
-          height: 'fit-content',
           '&:hover, &:active': 
           {
             borderColor: darkTheme ? '#FFF' : '#0a2540',
@@ -143,7 +141,7 @@ function CompactMenuButton({darkTheme, onClick = ()=>{}}) {
             color : darkTheme ? '#FFF !important' : `${primaryThemeColor} !important`
           },
       }} onClick={() => onClick()}>
-        <Menu fontSize='40px !important'/>
+        <Menu fontSize='small'/>
     </Button>
   )
 }
@@ -151,23 +149,23 @@ function CompactMenuButton({darkTheme, onClick = ()=>{}}) {
 function CompactMenuItems ({darkTheme}) {
   return (
     <PopOverMenu darkTheme={darkTheme} showDivider = {false}>
-      <MenuItem onClick={() => window.open('/videoMarketing', '_self')}>
+      <MenuItem onClick={() => window.open('/videoMarketing', '_self')} dense={true}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<CampaignRounded sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Marketing</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem onClick={() => window.open('/messaging', '_self')}>
+      <MenuItem onClick={() => window.open('/messaging', '_self')} dense={true}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<ChatBubble sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Messaging</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem onClick={() => window.open('/cloudServices', '_self')}>
+      <MenuItem onClick={() => window.open('/cloudServices', '_self')} dense={true}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<Cloud sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Cloud Services</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem onClick={() => window.open('/contactUs', '_self')}>
+      <MenuItem onClick={() => window.open('/contactUs', '_self')} dense={true}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<Call sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Contact Us</PopOverMenuItemText>
       </MenuItem>
       <Divider sx={{mx:2}}/>
-      <MenuItem onClick={() => window.open('/signIn', '_self')}>
+      <MenuItem onClick={() => window.open('/signIn', '_self')} dense={true}>
         <PopOverMenuItemText darkTheme = {darkTheme} icon={<AccountBoxRounded sx={{fontSize:16, color: darkTheme? '#FFF': '#0a2540'}}/>}>Sign In</PopOverMenuItemText>
       </MenuItem>
     </PopOverMenu>

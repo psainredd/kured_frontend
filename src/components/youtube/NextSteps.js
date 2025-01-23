@@ -1,5 +1,5 @@
 import { KuredButton } from "@/widgets/Buttons";
-import { primaryThemeColor } from "@/widgets/color";
+import { primaryThemeColor } from "@/widgets/Color";
 import { Cloud, Sell, SettingsSystemDaydream } from "@mui/icons-material";
 import { Autocomplete, Box, Divider, Grid, Link, Stack, TextField } from "@mui/material";
 import { blue, lightBlue } from "@mui/material/colors";

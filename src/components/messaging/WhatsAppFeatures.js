@@ -4,7 +4,7 @@ import { KuredTimeline } from '@/widgets/TimeLine';
 import { Box, Stack } from '@mui/material';
 import { blue, green, grey } from '@mui/material/colors';
 import { useState } from 'react';
-import { primaryThemeColor } from '@/widgets/color';
+import { primaryThemeColor } from '@/widgets/Color';
 
 export function WhatsAppFeatureLine({focusHeightFactor = .5, color=green[700]}) {
   const [activeIndex, setActiveIndex] = React.useState(-1)

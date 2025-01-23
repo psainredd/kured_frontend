@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Box, CircularProgress, circularProgressClasses } from '@mui/material'
 
-export function KuredCircularProgress({value = 75, color, thickness = 3, size=80,  children, ...props}) {
+export function KuredCircularProgress({value = 75, color, thickness = 3, size=80,  containerStyle, progressStyles, children, ...props}) {
     const [percentage, setPercentage] = React.useState(0);
     React.useEffect(() => { setTimeout(()=>{setPercentage(value)}, 500)}, [value])
     return (
-        <Box sx={{ position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
+        <Box sx={{ position: 'relative', alignItems: 'center', justifyContent: 'center', ...containerStyle}}>
             <CircularProgress
                 variant="determinate"
                 sx={{
@@ -28,6 +28,7 @@ export function KuredCircularProgress({value = 75, color, thickness = 3, size=80
                     [`& .${circularProgressClasses.circle}`]: {
                         strokeLinecap: 'round',
                     },
+                    ...progressStyles
                 }}
                 size={size}
                 thickness={thickness}

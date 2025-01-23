@@ -1,7 +1,7 @@
 import { KuredButton } from "@/widgets/Buttons";
 import { CheckItem } from "@/widgets/Text";
 import { Box, Grid, Stack } from "@mui/material";
-import { blue } from "@mui/material/colors";
+import { blue, grey } from "@mui/material/colors";
 
 export default function FormSidePanel({title, actionSubtitle, actionButtonLabel, actionButtonOnClick = (e) =>{}, children}) {
     return (
@@ -67,12 +67,13 @@ export default function FormSidePanel({title, actionSubtitle, actionButtonLabel,
     )
 }
 
-export function Form({actionLabel, onSubmit=(e)=>{}, children}) {
+export function Form({actionLabel, onSubmit=(e)=>{}, children, disableActionButton=false, itemSpacing=2}) {
     return (
-        <Stack spacing={2}>
+        <Stack spacing={itemSpacing}>
             {children}
             <Stack direction = 'row' justifyContent='flex-end'>
                 <KuredButton label={actionLabel} 
+                    disabled={disableActionButton}
                     sx={{
                         color: `white`, 
                         backgroundColor: `${blue[700]} !important`,
@@ -82,6 +83,10 @@ export function Form({actionLabel, onSubmit=(e)=>{}, children}) {
                             backgroundColor: 'rgba(255, 255, 255, 0) !important',
                             color:`#0a2540 !important`  
                         },
+                        '&:disabled' : {
+                          color: `white`, 
+                          backgroundColor: `${blue[300]} !important`
+                        }
                     }}
                     onClick={(e) =>{onSubmit(e)}}
                 />

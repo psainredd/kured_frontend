@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/material';
-import { HeaderBand } from './HeaderBand';
+import AnonymousUserHeaderBand from './AnonymousUserHeaderBand';
 
-export default function TopSection({children, fullScreenHeight=true}) {
+export default function AnonymousUserTopSection({children, fullScreenHeight=true}) {
     return (
         <Box sx={{height:{lg:fullScreenHeight?'100vh':'100%', md:'100%'}}}>
             <Box
@@ -16,7 +16,7 @@ export default function TopSection({children, fullScreenHeight=true}) {
                 }}>
             </Box>
             <Stack sx={{width: 1}} justifyContent='space-between' alignItems='center'>
-                <HeaderBand darkTheme={false}/>
+                <AnonymousUserHeaderBand darkTheme={false}/>
                 {children}
             </Stack>
         </Box>

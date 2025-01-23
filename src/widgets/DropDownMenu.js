@@ -1,31 +1,50 @@
 import * as React from 'react';
 import Popper from '@mui/material/Popper';
-import { Box, Link } from '@mui/material';
+import { Link, Stack } from '@mui/material';
+import { ArrowDropDown, ArrowDropUp } from '@mui/icons-material';
 
-export default function PopperMenu({children, onClick = (e) => {}, label, sx, placement = 'bottom', showOnMouseEnter=true}) {
+export default function PopperMenu({
+    children, 
+    onStateChange = (e) => {}, 
+    onClick = () => {}, 
+    label,
+    sx, 
+    showDirectionArrows = false,
+    directionArrowStyles = {},
+    placement = 'bottom', 
+    showOnMouseEnter=true, 
+    disablePortal = false,
+    hideOnClickAway = false,
+    openFlagFromParent
+  }) {
+
   const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const selfRef = React.useRef(null)
+  const childRef = React.useRef(null)
+  const linkRef = React.useRef(null)
 
-  const openPopper = (e) => {
-    setAnchorEl(e.currentTarget)
+  const openPopper = () => {
     setOpen(true);
   }
 
   const closePopper = () => {
-    setAnchorEl(null);
     setOpen(false);
   }
 
-  const onMouseEnter = (e, onClick = false) => {
-    if (showOnMouseEnter) {
-      openPopper(e)
-    } else if (onClick) {
-      if (open) {
-        closePopper()
-      } else {
-        openPopper(e)
-      }
+  const handleClick = (e) => {
+    if (open) {
+      closePopper()
+      onClick(false) // This may seems counter intuitive. Refer - https://stackoverflow.com/questions/62900377/why-is-react-setstate-hook-not-updating-immediately
+    } else {
+      openPopper()
+      onClick(true)
     }
+  }
+
+  const onMouseEnter = (e) => {
+    if (showOnMouseEnter) {
+      openPopper()
+    } 
   }
 
   const handleClose = (e) => {
@@ -34,19 +53,50 @@ export default function PopperMenu({children, onClick = (e) => {}, label, sx, pl
     }
   };
 
+  const handleClickOutside = (event) =>  {
+    if (selfRef.current && !selfRef.current.contains(event.target)) {
+      if (childRef.current && childRef.current.contains(event.target)) {
+        return;
+      }
+      closePopper()
+    } 
+  }
+
+  React.useEffect(() => {
+    if (hideOnClickAway) {
+      window.addEventListener('mousedown', handleClickOutside, true)
+    }
+    return () => {
+      if (hideOnClickAway) {
+        window.removeEventListener('mousedown', handleClickOutside, true)
+      } 
+    }
+  },[])
+
+  React.useEffect(() => {
+    onStateChange(open)
+  }, [open])
+
   return (
-    <Box>
-      <Link underline='none' href="#" onMouseEnter= {onMouseEnter} onClick={(e) => {onMouseEnter(e, true); onClick()}} sx={{paddingBottom:2, ...sx}}>
-        {label}
+    <div ref={selfRef}>
+      <Link underline='none' ref={linkRef} href="javascript:" onMouseEnter= {onMouseEnter} onClick={handleClick} sx={{paddingBottom:1, ...sx}}>
+        <Stack direction='row' spacing={0} alignItems='center'>
+          {label}
+          {showDirectionArrows && (open ? <ArrowDropUp sx={{...directionArrowStyles}}/> : <ArrowDropDown sx={{...directionArrowStyles}}/>)}
+        </Stack>
       </Link>
       <Popper
+        disablePortal={disablePortal}
         onMouseLeave={handleClose}
         onBlur={handleClose}
         open={open}
-        anchorEl={anchorEl}
-        placement={placement}>
-        {children}
+        anchorEl={linkRef?.current ?? null}
+        placement={placement}
+      >
+        <div ref={childRef}>
+          {children}
+        </div>
       </Popper>
-    </Box>
+    </div>
   );
 }

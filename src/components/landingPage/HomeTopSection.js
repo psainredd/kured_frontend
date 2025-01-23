@@ -1,6 +1,6 @@
 import { Box, Stack, CardMedia } from '@mui/material'
 import { KuredButton } from '@/widgets/Buttons'
-import { HeaderBand } from '../common/HeaderBand'
+import AnonymousUserHeaderBand from '../common/AnonymousUserHeaderBand'
 
 export default function HomePageTopSection() {
     return (
@@ -16,7 +16,7 @@ export default function HomePageTopSection() {
             }} 
             autoPlay={true} muted={true} loop component='video' src='/background.mp4'/>
           <Stack justifyContent={'center'} sx={{width:1}} alignItems={'center'}>
-            <HeaderBand/>
+            <AnonymousUserHeaderBand/>
           </Stack>  
           <Stack sx={{
               position:'absolute',
@@ -45,10 +45,15 @@ export default function HomePageTopSection() {
                 onClick={() => window.open('/signIn', '_self')}
               />
               <KuredButton label='Contact Us' sx={{
-                color: '#0a2540',
-                backgroundColor: '#FFF !important',
-                border:1,
-                borderColor:'#FFF'
+                  color: '#0a2540',
+                  backgroundColor: '#FFF !important',
+                  border:1,
+                  borderColor:'#FFF',
+                  '&:hover, &:active': 
+                  {
+                    background: 'none !important',
+                    color:`#FFF !important`
+                  },
                 }}
                 onClick={() => window.open('/contactUs', '_self')}
               />

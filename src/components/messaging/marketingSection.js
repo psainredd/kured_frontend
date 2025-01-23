@@ -1,7 +1,7 @@
 import { Box, Stack, Grid } from '@mui/material'
 import { KuredButton } from '@/widgets/Buttons'
 import { blue, lightBlue } from '@mui/material/colors'
-import { primaryThemeColor, shadedBackground } from '@/widgets/color'
+import { primaryThemeColor, shadedBackground } from '@/widgets/Color'
 import { CheckCircleItem, CheckItem } from '@/widgets/Text'
 import WhatsAppConversation, { WhatsAppMessage, leftDirection } from './WhatsAppConversation'
 

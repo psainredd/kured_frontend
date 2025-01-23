@@ -21,7 +21,7 @@ import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { ArrowBack, ArrowBackIos, ArrowForward } from '@mui/icons-material';
-import { primaryThemeColor } from './color';
+import { primaryThemeColor } from './Color';
 
 export const KuredOutlinedSecondaryButton = styled(Button)( {
     fontSize:15,
@@ -108,6 +108,32 @@ const KuredSecondaryButtonInternal = styled(Button)({
         borderBlockWidth: 2,
     }
 });
+
+export const KuredStyledToggleButton = styled(ToggleButton) (({theme}) => ({
+    border: 'none',
+    textTransform:"none",
+    justifyContent: 'left',
+    background:'none',
+    fontSize: {lg:15, md: 12},
+    color: '#E0E0E0',
+    fontWeight: 500, 
+    width:'100%',
+    borderRadius: '0 !important',
+    justifyContent: 'left',
+    '&:hover, &:active': {
+        color:`${theme.secondary}`,
+        fontSize: {lg:15, md:12},
+        fontWeight: 700,
+        backgroundColor: `${theme.primary}`
+    },
+    '&.Mui-selected, &.Mui-selected:hover': {
+        color: blue[700],
+        fontSize: {lg:15, xs:12},
+        fontWeight: 700,
+        backgroundColor: '#FFF'
+    },
+    
+}))
 
 export function KuredSecondaryButton({children, sx, ...props}) {
     return (
@@ -234,7 +260,6 @@ export function IRecommendToggleButton({children, sx, ...props}) {
     )
 }
 
-
 export function KuredToggleButtonWithEffects({children, sx, ...props}) {
     return (
         <StyledToggleButton disableFocusRipple disableRipple disableTouchRipple {...props} sx={{...sx}}>
@@ -251,7 +276,7 @@ export function KuredToggleButton({children, sx, ...props}) {
     )
 }
 
-function GenericDataGridButton({label, onClickHandler, color, backgroundColor, icon, iconButtonIcon, showLabel=false}) {
+export function KuredIconButton({label, onClickHandler, color, backgroundColor, icon, iconButtonIcon, showLabel=false}) {
     if (showLabel) {
         return (
             <Button startIcon={icon}  
@@ -294,7 +319,7 @@ export function DataGridPrintButton({printUrl, showLabel = false}) {
             }, 100);
     }
     return (
-        <GenericDataGridButton
+        <KuredIconButton
             label = 'Print'
             onClickHandler ={(e) => clickHandler()}
             backgroundColor = 'rgba(17, 148, 247, 0.12)'
@@ -308,7 +333,7 @@ export function DataGridPrintButton({printUrl, showLabel = false}) {
 export function DataGridViewButton({url, showLabel=false}) {
     const clickHandler = () => document.open(url, '_blank', 'noreferrer noopener');
     return (
-        <GenericDataGridButton
+        <KuredIconButton
             label = 'View'
             onClickHandler ={(e) => clickHandler()}
             backgroundColor = 'rgba(2, 182, 179,0.12)'
@@ -321,7 +346,7 @@ export function DataGridViewButton({url, showLabel=false}) {
 
 export function DataGridAcceptButton({onAccept, showLabel=false}) {
     return (
-        <GenericDataGridButton
+        <KuredIconButton
             label = 'Accept'
             onClickHandler ={(e) => onAccept()}
             backgroundColor = 'rgba(15, 183, 107,0.12)'
@@ -334,7 +359,7 @@ export function DataGridAcceptButton({onAccept, showLabel=false}) {
 
 export function DataGridCancelButton({onCancel, showLabel=false}) {
     return (
-        <GenericDataGridButton
+        <KuredIconButton
             label = 'Cancel'
             onClickHandler ={(e) => onCancel()}
             backgroundColor = 'rgba(242, 17, 54,0.12)'
@@ -402,7 +427,7 @@ export function CancelButtonWithoutIcon({label="Cancel", onClick, sx, ...props})
 export function SendButton({label="Send", onClick, sx, ...props}) {
     return (
         <Button disableTouchRipple disableFocusRipple disableRipple startIcon={<SendIcon sx={{fontSize: '16px !important'}}/>} {...props}
-            sx={{textTransform: 'none', fontSize: 16, fontWeight: 500, py:0, ...sx, background:'none', color: red[500]}} onClick={() => onClick()}>
+            sx={{textTransform: 'none',  ...sx}} onClick={() => onClick()}>
             {label}
         </Button>
     )
@@ -484,19 +509,20 @@ export function AddIconButton({onClick, sx, ...props}) {
     )
 }
 
-export function KuredButton({onClick = (e) => {}, onMouseEnter = (e) => {}, sx, label='Sign Up', ...props}) {
+export function KuredButton({label='Sign Up', endIcon, showEndIcon = true, sx, onClick = (e) => {}, onMouseEnter = (e) => {}, onMouseLeave = (e) =>{}, ...props}) {
     const [mouseOver, setMouseOver] = React.useState(false);
-    const arrowForwardIcon = mouseOver? 
+    const arrowForwardIcon = showEndIcon && (endIcon ? endIcon : ( mouseOver ? 
                               <ArrowForward sx= {{fontSize:'12px !important'}}/> :
-                                <ArrowForwardIosIcon sx={{fontSize:'10px !important'}}/>;
+                                <ArrowForwardIosIcon sx={{fontSize:'10px !important'}}/>));
 
     const onMouseOver = (e) => {
         setMouseOver(true);
         onMouseEnter(e);
     }
 
-    const onMouseLeave = (e) => {
+    const onMouseLeaveFunc = (e) => {
         setMouseOver(false);
+        onMouseLeave(e)
     }
     
     return (
@@ -515,13 +541,13 @@ export function KuredButton({onClick = (e) => {}, onMouseEnter = (e) => {}, sx, 
                 '&:hover, &:active': 
                 {
                   background: 'none !important',
-                  color:'#FFF  !important'
+                  color:`${primaryThemeColor} !important`
                 },
                 ...sx
             }}
             {...props}
             onClick={(e) => onClick(e)}
-            onMouseLeave={(e) => onMouseLeave(e)}
+            onMouseLeave={(e) => onMouseLeaveFunc(e)}
             onMouseEnter={(e) => onMouseOver(e)}>
             {label}
         </Button>
@@ -537,7 +563,7 @@ export const StyledButton = styled(KuredMenuItemWithEffects)({
     },
   })
 
-  export function KuredButtonWithStartIcon({onClick = (e) => {}, onMouseEnter = (e) => {}, sx, label='Go Back', ...props}) {
+export function KuredButtonWithStartIcon({onClick = (e) => {}, onMouseEnter = (e) => {}, sx, label='Go Back', ...props}) {
     const [mouseOver, setMouseOver] = React.useState(false);
     const arrowBackIcon = mouseOver? 
                               <ArrowBack sx= {{fontSize:'12px !important'}}/> :

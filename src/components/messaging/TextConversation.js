@@ -17,7 +17,9 @@ export function TextConversation({children}) {
 export function TextMessage({
   children, 
   direction,
-  showAuxStyles=true
+  maxWidth = '100%',
+  showAuxStyles=true,
+  hiddenAuxStyle={}
 }) {
   const isLeft = direction == leftDirection;
   const backgroundColor = isLeft ? blue[700] : 'white';
@@ -46,7 +48,7 @@ export function TextMessage({
       content:'""'
     }
   }
-  const auxStyle = showAuxStyles ? (isLeft ? beforeStyle : afterStyle) : {};
+  const auxStyle = showAuxStyles ? (isLeft ? beforeStyle : afterStyle) : {...hiddenAuxStyle};
   const style =  
     {
       backgroundColor:backgroundColor, 
@@ -55,7 +57,7 @@ export function TextMessage({
       paddingY:2,
       fontSize:15,
       color:color,
-      maxWidth:1,
+      maxWidth:{maxWidth},
       ...auxStyle      
     };
   return (

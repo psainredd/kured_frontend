@@ -1,20 +1,18 @@
-import { Stack } from '@mui/material'
-import SinglePlatformSection from '@/components/home/SinglePlatformSection';
-import MarketingSection from '@/components/home/MarketingSection';
-import MessagingSection from '@/components/home/MessagingSection';
-import DataHostingSection from '@/components/home/DataHostingSection';
-import HomePageTopSection from '@/components/home/HomeTopSection';
-import PageLayout from '@/components/common/Layout';
-import FooterSection from '@/components/common/Footer';
+import SinglePlatformSection from '@/components/landingPage/SinglePlatformSection';
+import MarketingSection from '@/components/landingPage/MarketingSection';
+import MessagingSection from '@/components/landingPage/MessagingSection';
+import DataHostingSection from '@/components/landingPage/DataHostingSection';
+import HomePageTopSection from '@/components/landingPage/HomeTopSection';
+import { AnonymousUserPageLayout } from "@/components/common/Layout";
 
 export default function Home() {
   return (
-    <PageLayout title ='Kured'> 
+    <AnonymousUserPageLayout title ='Kured'> 
       <HomePageTopSection/>
       <SinglePlatformSection/>
       <MarketingSection/>
       <MessagingSection/>
       <DataHostingSection/>
-    </PageLayout> 
+    </AnonymousUserPageLayout> 
   )
 }

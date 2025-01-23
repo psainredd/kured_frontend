@@ -1,23 +1,23 @@
-import PageLayout from '@/components/common/Layout';
-import TopSection from '@/components/common/TopSection';
-import DataHostingSection from '@/components/home/DataHostingSection';
+import { AnonymousUserPageLayout } from "@/components/common/Layout";
+import AnonymousUserTopSection from '@/components/common/AnonymousUserTopSection';
+import DataHostingSection from '@/components/landingPage/DataHostingSection';
 import NextStepsSection from '@/components/youtube/NextSteps';
 import { KuredButton } from '@/widgets/Buttons';
-import { primaryThemeColor } from '@/widgets/color';
+import { primaryThemeColor } from '@/widgets/Color';
 import { Grid, Box, Stack, CardMedia, Divider } from '@mui/material';
 import { blue, lightBlue } from '@mui/material/colors';
 
 export default function CloudServices() {
   return (
-    <PageLayout title={'Kured | Cloud Services'}>
-        <TopSection>
+    <AnonymousUserPageLayout title={'Kured | Cloud Services'}>
+        <AnonymousUserTopSection>
           <TopSectionDetails/>
-        </TopSection>
+        </AnonymousUserTopSection>
         <SinglePlatformSection/>
         <DataHostingSection/>
         <AISection/>
         <NextStepsSection/>
-    </PageLayout>      
+    </AnonymousUserPageLayout>      
   )
 }
 

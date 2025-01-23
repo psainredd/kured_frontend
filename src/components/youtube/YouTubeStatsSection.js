@@ -1,4 +1,4 @@
-import YouTubeDataCharts from '@/components/youtube/charts';
+import YouTubeDataCharts from '@/components/youtube/Charts';
 import { KuredButton } from '@/widgets/Buttons';
 import { Box, Divider, Grid, Stack } from '@mui/material';
 import { blue, red } from '@mui/material/colors';

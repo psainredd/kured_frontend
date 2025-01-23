@@ -1,18 +1,18 @@
-import PageLayout from "@/components/common/Layout";
-import TopSection from "@/components/common/TopSection";
+import { AnonymousUserPageLayout } from "@/components/common/Layout";
+import AnonymousUserTopSection from "@/components/common/AnonymousUserTopSection";
 import { Person } from "@mui/icons-material";
 import { Avatar, Box, Grid, Stack, Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
 export default function About() {
     return (
-        <PageLayout title={'Kured | About'} bodysx={{height:'100vh'}}>
-            <TopSection fullHeight={false}>
+        <AnonymousUserPageLayout title={'Kured | About'} bodysx={{height:'100vh'}}>
+            <AnonymousUserTopSection fullHeight={false}>
                 <Box sx={{mt:{md:5, xs:0}, mb:4, width:{lg:.75, xs:1}}}>
                     <AboutUsSection/>
                 </Box>
-            </TopSection>
-        </PageLayout>
+            </AnonymousUserTopSection>
+        </AnonymousUserPageLayout>
     )
 }
 
