@@ -13,8 +13,8 @@ export function MenuPanel ({selectedItemId, onItemSelected, menuItems, showMinWi
         <Stack>
             {menuData.map((data) => (
                 data.childMenuItems ? 
-                    <MenuItemWithChildren data={data} showMinWidth={showMinWidth} selectedItemId={selectedItemId} onStateChange={onItemSelected}/> :
-                    <MenuItem data={data} showMinWidth={showMinWidth} selectedItemId={selectedItemId} onStateChange={onItemSelected}/>
+                    <MenuItemWithChildren key={data.id} data={data} showMinWidth={showMinWidth} selectedItemId={selectedItemId} onStateChange={onItemSelected}/> :
+                    <MenuItem key={data.id} data={data} showMinWidth={showMinWidth} selectedItemId={selectedItemId} onStateChange={onItemSelected}/>
             ))}
         </Stack>
     )
@@ -63,7 +63,7 @@ function MenuItemWithChildren({data, showMinWidth, selectedItemId, onStateChange
             <Collapse in={showChildren}>
                 <Box sx={{ml:2}}>
                 {data.childMenuItems.map(child => (
-                        <MenuItem data={child} showMinWidth={showMinWidth} selectedItemId={selectedItemId} onStateChange={onStateChange} isChild={true}/>
+                        <MenuItem key={child.id} data={child} showMinWidth={showMinWidth} selectedItemId={selectedItemId} onStateChange={onStateChange} isChild={true}/>
                 ))}
                 </Box>
             </Collapse>

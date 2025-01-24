@@ -64,7 +64,7 @@ const GetItemData = (onShowMinWidth, name, icon, panel, children=null) => ({
     id: name.toLocaleLowerCase().replaceAll(' ', '_'),
     icon: icon,
     childMenuItems: children?.map(childFunc => childFunc(onShowMinWidth)),
-    panel: <Layout name={name} onShowMinWidth={onShowMinWidth}>{panel}</Layout>
+    panel: <Layout key={name} name={name} onShowMinWidth={onShowMinWidth}>{panel}</Layout>
 })
 
 const iconStyles = {fontSize: 20};
