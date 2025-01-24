@@ -252,7 +252,7 @@ function Notifications({hasNotifications}) {
 function NotificationList({notifications}) {
     const list = notifications ?? []
     const notificationElements = list.map(n => (
-        <Notification notification={n}/>
+        <Notification key={n} notification={n}/>
     ))
     return (<>{...notificationElements}</>)
 }
