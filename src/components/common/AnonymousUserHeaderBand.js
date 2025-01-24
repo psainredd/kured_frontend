@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import { Divider, ListItemText, MenuItem, MenuList } from '@mui/material';
 import PopperMenu from '@/widgets/DropDownMenu';
 import { AccountBoxRounded, Call, CampaignRounded, ChatBubble, Cloud, Menu, YouTube } from '@mui/icons-material';
-import { primaryThemeColor } from '@/widgets/Color';
+import { primaryThemeColor } from '../../widgets/Color';
 import { HiatusContext } from '@/pages/_app';
 
 export default function AnonymousUserHeaderBand({darkTheme=true}) {

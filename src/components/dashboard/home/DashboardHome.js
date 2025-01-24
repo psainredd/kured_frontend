@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Grid, Slider, Stack, Typography } from "@mui/material";
 import AreaChart from "../../charts/TestAreaChart";
-import { primaryThemeColor } from "@/widgets/Color";
+import { primaryThemeColor } from '../../../widgets/Color';
 import { green, lightBlue } from "@mui/material/colors";
 import { ArrowDropDown, ArrowDropUp, Remove } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";

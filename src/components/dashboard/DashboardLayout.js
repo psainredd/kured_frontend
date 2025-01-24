@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Badge, Card, CardContent, Divider, Grid, IconButton, Link, MenuItem, Stack, Typography, useMediaQuery } from '@mui/material';
 import { Cancel, Info, MailOutline, Menu, NotificationsOutlined, ReportProblem } from '@mui/icons-material';
-import { primaryThemeColor } from '@/widgets/Color';
+import { primaryThemeColor } from '../../widgets/Color';
 import { KuredAvatar } from '@/widgets/Avatar';
 import { blue, lightBlue, yellow } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';

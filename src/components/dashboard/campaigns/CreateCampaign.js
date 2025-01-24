@@ -1,6 +1,6 @@
 import { Form } from "@/components/common/FormSidePanel";
 import { KuredButton } from "@/widgets/Buttons";
-import { primaryThemeColor } from "@/widgets/Color";
+import { primaryThemeColor } from '../../../widgets/Color';
 import { Label } from "@/widgets/FormItem";
 import { InputField, KuredDatePicker, Select } from "@/widgets/Inputs";
 import { Add, AddCircle, AddCircleOutline, PlusOne } from "@mui/icons-material";
