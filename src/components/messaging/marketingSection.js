@@ -4,6 +4,7 @@ import { blue, lightBlue } from '@mui/material/colors'
 import { primaryThemeColor, shadedBackground } from '@/widgets/Color'
 import { CheckCircleItem, CheckItem } from '@/widgets/Text'
 import WhatsAppConversation, { WhatsAppMessage, leftDirection } from './WhatsAppConversation'
+import { publicRuntimeConfig } from '../../../next.config'
 
 export default function MarketingSection() {
     return (
@@ -104,7 +105,7 @@ function Conversation() {
         <Stack justifyContent={'center'} alignContent={'center'} sx={{zIndex:10, display:{xs:'none', md:'block'}}}>
             <WhatsAppConversation height={{md:650}} width='50%'>
                 <WhatsAppMessage direction={leftDirection} showReadReceipt={false} maxWidth='80%'>
-                    <img src='disabilityday.jpeg' width='calc(90%)' height={300}/>
+                    <img src={`${publicRuntimeConfig.s3BaseUrl}/disabilityday.jpeg`} width='calc(90%)' height={300}/>
                 </WhatsAppMessage>
                 <WhatsAppMessage direction={leftDirection} showReadReceipt={false} maxWidth='80%' showAuxStyles={false}  centerAlignText={true} sx={{marginTop:-1, width:1}}>
                     This International day of Persons with Disablities, we at Allay Health offer you <b>50% discount</b> on our <b>Comprehensive Health Checkup </b>

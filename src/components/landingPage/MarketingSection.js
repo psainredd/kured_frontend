@@ -2,6 +2,7 @@ import { Box, Stack, CardMedia, Grid, Divider } from '@mui/material'
 import { KuredButton } from '@/widgets/Buttons'
 import { blue } from '@mui/material/colors';
 import { BackgroundVideo } from '@/widgets/Video';
+import { publicRuntimeConfig } from '../../../next.config';
 
 export default function MarketingSection() {
     return (
@@ -104,7 +105,7 @@ export default function MarketingSection() {
             </Grid>
             <Stack sx={{width:'100%', paddingY:{xs:0, md:5}}} alignItems='center' justifyContent='center' spacing={2}>
               <Box sx={{display:{md:'block', xs:'none'}, zIndex:10, width:{lg:'60%', md: .9}}}>
-                <BackgroundVideo src='/vid_marketing.mp4' sx={{width:'100%', zIndex:10, borderRadius:5, boxShadow: '1px 6px 14px rgb(0 0 0 / 20%) !important'}}/>
+                <BackgroundVideo src={`${publicRuntimeConfig.s3BaseUrl}/vid_marketing.mp4`} sx={{width:'100%', zIndex:10, borderRadius:5, boxShadow: '1px 6px 14px rgb(0 0 0 / 20%) !important'}}/>
               </Box>
             </Stack>
           </Stack>

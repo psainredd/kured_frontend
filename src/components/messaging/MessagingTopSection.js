@@ -2,6 +2,7 @@ import { KuredButton } from '@/widgets/Buttons';
 import { BackgroundVideo } from '@/widgets/Video';
 import { Box, Stack } from '@mui/material';
 import { blue } from '@mui/material/colors';
+import { publicRuntimeConfig } from '../../../next.config';
 
 export default function MessagingTopSectionDetails() {
   return (
@@ -18,10 +19,10 @@ export default function MessagingTopSectionDetails() {
             Get started now.
           </Box>
         </Stack>
-        <BackgroundVideo src='/notifications.mp4' sx={{
+        <BackgroundVideo src={`${publicRuntimeConfig.s3BaseUrl}/notifications.mp4`} sx={{
             display:{md:'block', xs:'none'}, 
             borderRadius:5,
-            width:{lg: .8, md:.8}, 
+            width:{lg: .65, md:.65}, 
             boxShadow: {md:'1px 6px 14px rgb(0 0 0 / 20%) !important'}
         }}/>
       </Stack>

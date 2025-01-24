@@ -6,7 +6,7 @@ export default function AnonymousUserTopSection({children, fullScreenHeight=true
         <Box sx={{height:{lg:fullScreenHeight?'100vh':'100%', md:'100%'}}}>
             <Box
                 sx={{
-                    backgroundColor:'#F0F0F0',
+                    backgroundColor:{lg: '#F0F0F0', md:'#FFF'},
                     transform: 'skewY(-10deg)',
                     position: 'absolute',
                     top: -150,

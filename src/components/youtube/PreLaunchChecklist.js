@@ -8,6 +8,7 @@ import { Grid, Slide, Stack } from '@mui/material';
 import { CheckItem, PointItem } from '@/widgets/Text';
 import { MaskedImage } from '@/widgets/Image';
 import { primaryThemeColor } from '@/widgets/Color';
+import { publicRuntimeConfig } from '../../../next.config';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -139,7 +140,7 @@ function CampaignGoal() {
                 </Grid>
                 <Grid item xs={12}>
                     <Stack justifyContent={'center'} alignItems={'center'}>
-                        <QuotationMaskedImage imgSrc='/goal.jpeg' filterColor='#0a2540' 
+                        <QuotationMaskedImage imgSrc={`${publicRuntimeConfig.s3BaseUrl}/goal.jpeg`} filterColor='#0a2540' 
                             quote="If you don’t know where you are going, you will probably end up somewhere else."
                             quoteAuthor='Laurence J. Peter'/>
                     </Stack>
@@ -250,7 +251,7 @@ function BudgetingSection() {
                 </Grid>
                 <Grid item xs={12}>
                     <Stack justifyContent={'center'} alignItems={'center'}>
-                        <MaskedImage imgSrc={'/budget.jpeg'} filterColor={blue[700]}>
+                        <MaskedImage imgSrc={`${publicRuntimeConfig.s3BaseUrl}/budget.jpeg`} filterColor={blue[700]}>
                             <Box sx={{paddingX:5, width:1, fontSize:{lg:16, md:14}, fontWeight:400, marginBottom:7}}>
                                 You can calculate budget based on <b>Customer Life Value(CLV)</b>, which is the income you can generate from
                                 an average customer. You&apos;ll never know how to develop an optimal marketing budget unless you know 
@@ -290,7 +291,7 @@ function TargetAudienceSection() {
                 </Grid>
                 <Grid item xs={12}>
                     <Stack justifyContent={'center'} alignItems={'center'}>
-                        <MaskedImage imgSrc={'/target_audience.jpeg'} filterColor={green[700]}>
+                        <MaskedImage imgSrc={`${publicRuntimeConfig.s3BaseUrl}/target_audience.jpeg`} filterColor={green[700]}>
                             <Box sx={{paddingX:5, width:1, fontSize:{lg:16, md:14}, fontWeight:400, marginBottom:5}}>
                                     Few characteristics to conside when determining target audience: age, gender, income, job, education, affinities
                             </Box>
@@ -331,7 +332,7 @@ function MarketingChannels() {
                 </Grid>
                 <Grid item xs={12}>
                     <Stack justifyContent={'center'} alignItems={'center'}>
-                        <MaskedImage imgSrc={'/combination.jpeg'} filterColor={lightBlue[300]}>
+                        <MaskedImage imgSrc={`${publicRuntimeConfig.s3BaseUrl}/combination.jpeg`} filterColor={lightBlue[300]}>
                             <Box sx={{paddingX:5, width:1, fontSize:{lg:16, md:14}, fontWeight:400, marginBottom:5}}>
                                 Choosing right combination of channels is crucial for a successful campaign. 
                                 An effective marketing campaign incorporates multiple channels to “touch” potential customers as many times and in as many ways as possible.

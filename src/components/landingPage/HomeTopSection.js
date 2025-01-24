@@ -1,6 +1,7 @@
 import { Box, Stack, CardMedia } from '@mui/material'
 import { KuredButton } from '@/widgets/Buttons'
 import AnonymousUserHeaderBand from '../common/AnonymousUserHeaderBand'
+import { publicRuntimeConfig } from '../../../next.config'
 
 export default function HomePageTopSection() {
     return (
@@ -14,7 +15,7 @@ export default function HomePageTopSection() {
               objectFit:'cover',
               zIndex:-10
             }} 
-            autoPlay={true} muted={true} loop component='video' src='/background.mp4'/>
+            autoPlay={true} muted={true} loop component='video' src={`${publicRuntimeConfig.s3BaseUrl}/background.mp4`}/>
           <Stack justifyContent={'center'} sx={{width:1}} alignItems={'center'}>
             <AnonymousUserHeaderBand/>
           </Stack>  

@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152.48 47"><g id="a"/><g id="b"><g id="c"><g><path d="M0,23.5c0,12.75,10.34,23.09,23.09,23.09,12.75,0,23.09-10.34,23.09-23.09,0-7.02-3.2-13.66-8.68-18.05L40.41,.4H23.09C10.34,.4,0,10.74,0,23.49H0Zm23.09,11.56c-6.38,0-11.55-5.17-11.55-11.55,0-6.38,5.17-11.55,11.55-11.55,6.38,0,11.55,5.17,11.55,11.55,0,6.38-5.17,11.55-11.55,11.55Z" style="fill:#fff;"/><text transform="translate(54.81 37)" style="fill:#fff; font-family: Roboto; font-size:36px;"><tspan x="0" y="0">kured</tspan></text></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152.48 47">
+<defs>
+  <style type="text/css">
+    @font-face {
+      font-family: "Roboto-Regular";
+      src: url("https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic");
+    }
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
+     @font-face {
+      font-family: "Roboto";
+      src: url("https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic");
+    }
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic');
+ </style>
+</defs>
+<g id="a"/>
+<g id="b">
+    <g id="c">
+        <g>
+            <path d="M0,23.5c0,12.75,10.34,23.09,23.09,23.09,12.75,0,23.09-10.34,23.09-23.09,0-7.02-3.2-13.66-8.68-18.05L40.41,.4H23.09C10.34,.4,0,10.74,0,23.49H0Zm23.09,11.56c-6.38,0-11.55-5.17-11.55-11.55,0-6.38,5.17-11.55,11.55-11.55,6.38,0,11.55,5.17,11.55,11.55,0,6.38-5.17,11.55-11.55,11.55Z" style="fill:#fff;"/>
+<text transform="translate(54.81 37)" style="fill:#fff; font-family:Roboto-Regular, Roboto; font-size:36px;"><tspan x="0" y="0">kured</tspan></text></g></g></g></svg>

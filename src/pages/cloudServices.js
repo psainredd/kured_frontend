@@ -6,6 +6,7 @@ import { KuredButton } from '@/widgets/Buttons';
 import { primaryThemeColor } from '@/widgets/Color';
 import { Grid, Box, Stack, CardMedia, Divider } from '@mui/material';
 import { blue, lightBlue } from '@mui/material/colors';
+import { publicRuntimeConfig } from "../../next.config";
 
 export default function CloudServices() {
   return (
@@ -96,7 +97,7 @@ function SinglePlatformSection() {
             <Box sx={{display:{md:'block', xs:'none'}}}>
               <img src={`/patientApp.png`} loading="lazy" width='250px' justifyContent='center'/>
             </Box>
-            <CardMedia autoPlay='true' loop component='video' src='/home_vid.mp4' 
+            <CardMedia autoPlay='true' loop component='video' src={`${publicRuntimeConfig.s3BaseUrl}/home_vid.mp4`} 
               sx={{ 
                   width:{md:'650px', xs:'1'},
                   borderRadius:2, 

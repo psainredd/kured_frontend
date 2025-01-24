@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Divider, Grid, Link, Slide, Stack, Tab, Tabs } from '@mui/material';
+import { Grid, Link, Stack, Tabs } from '@mui/material';
 import { Box } from '@mui/system';
-import { styled } from '@mui/system';
-import { blue, cyan, lightBlue } from '@mui/material/colors';
+import { cyan, lightBlue } from '@mui/material/colors';
 import { LaunchOutlined } from '@mui/icons-material';
 import { KuredButton } from '@/widgets/Buttons';
 import { KuredTab, TabContent, convertToId } from '@/widgets/TabsPanel';
 import ContentSection from '../common/ContentSection';
+import { publicRuntimeConfig } from '../../../next.config';
 
 function CustomTabsPanel({labels, children, onTabChange= (newValue)=>{} ,...props}) {
     const [tabPanelIndex, setTabPanelIndex] = React.useState(0);
@@ -122,6 +122,7 @@ function SideSection() {
   const googleAdsVideos = 'https://www.youtube.com/@GoogleAds/videos';
   const vidRef = React.useRef(null);
   const onMouseEnter = () => {
+    if (vidRef.current)
     vidRef.current.play();
   }
   const onMouseLeave = () => {
@@ -137,7 +138,7 @@ function SideSection() {
       background:'#FFF',  
       width: 1,
       }} onMouseEnter={() => onMouseEnter()} onMouseLeave = {() => onMouseLeave()}>
-      <video src='/audience_targeting.mp4' ref={vidRef} width='100%' sx={{
+      <video src={`${publicRuntimeConfig.s3BaseUrl}/audience_targeting.mp4`} ref={vidRef} width='100%' sx={{
           borderRadius:3,
           display:{md:'block', xs:'none'}
         }}/>  

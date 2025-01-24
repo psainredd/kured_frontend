@@ -2,6 +2,7 @@ import { Box, Stack, CardMedia, Grid } from '@mui/material'
 import { KuredButton } from '@/widgets/Buttons'
 import { blue } from '@mui/material/colors';
 import { BackgroundVideo } from '@/widgets/Video';
+import { publicRuntimeConfig } from '../../../next.config';
 
 export default function SinglePlatformSection() {
     return (
@@ -43,7 +44,7 @@ export default function SinglePlatformSection() {
               <Box sx={{display:{md:'block', xs:'none'}}}>
                 <img src={`/patientApp.png`} loading="lazy" width='250px' justifyContent='center'/>
               </Box>
-              <BackgroundVideo src='/home_vid.mp4' 
+              <BackgroundVideo src={`${publicRuntimeConfig.s3BaseUrl}/home_vid.mp4`} 
                 sx={{ 
                     width:{md:'650px', xs:'1'},
                     borderRadius:2, 

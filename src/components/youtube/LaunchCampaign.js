@@ -5,6 +5,7 @@ import { MaskedImage } from "@/widgets/Image";
 import { ContentSectionWithMUIIcon } from "../common/ContentSection";
 import { Google, WhatsApp } from "@mui/icons-material";
 import { blue, green } from "@mui/material/colors";
+import { publicRuntimeConfig } from "../../../next.config";
 
 export default function LaunchCampaign() {
     return(
@@ -64,7 +65,7 @@ export default function LaunchCampaign() {
                     </Grid>
                     <Grid item xs={7}>
                         <Stack justifyContent={'center'} alignItems={'center'}>
-                            <MaskedImage imgSrc={'/launch.jpeg'} />
+                            <MaskedImage imgSrc={`${publicRuntimeConfig.s3BaseUrl}/launch.jpeg`} />
                         </Stack>
                     </Grid>
                 </Grid>
