@@ -14,7 +14,6 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { blue, green, red } from '@mui/material/colors';
 import { KuredTooltip } from './ToolTip';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import ReplyIcon from '@mui/icons-material/Reply';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import SendIcon from '@mui/icons-material/Send';
@@ -379,14 +378,6 @@ export function EditButton({label="Edit", onClick}) {
     )
 }
 
-export function AddButton({label="Add", onClick, sx, ...props}) {
-    return (
-        <Button disableTouchRipple disableFocusRipple disableRipple startIcon={<AddCircleIcon fontSize='16px !important'/>} 
-            sx={{textTransform: 'none', fontSize: 16, fontWeight: 500, py:0, background:'none', ...sx}} onClick={() => onClick()}>
-            {label}
-        </Button>
-    )
-}
 
 export function ReplyButton({label="Reply", onClick, sx, ...props}) {
     return (
@@ -504,7 +495,7 @@ export function AddIconButton({onClick, sx, ...props}) {
                 }} 
                 {...props}
                 onClick={(e) => onClick(e)}>
-            <AddRoundedIcon/>
+            <AddCircleIcon/>
         </IconButton>
     )
 }

@@ -1,15 +1,11 @@
 import * as React from 'react'; 
-import { Box } from '@mui/system';
-import { Button, Chip, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { StyledLink } from './Link';
-import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import AlarmOutlinedIcon from '@mui/icons-material/AlarmOutlined';
-import { orange, lightGreen, red, blue, green, grey } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 
 import { ShortformUserInfo } from './User';
 import { DataGridAcceptButton, DataGridCancelButton, DataGridPrintButton, DataGridViewButton } from './Buttons';
-import { BodyMain, H7 } from './Typography';
+import { BodyMain } from './Typography';
 
 export function renderHeader(name) {
     return (
@@ -46,37 +42,6 @@ export function GenericRenderCell(params) {
                 {params.value}
             </BodyMain>
         </Stack>
-    )
-}
-
-export const getStatusChip = (params) => {
-    
-    switch (params.value) {
-        case 'Completed':
-        case 'Confirmed':
-            return (
-                <Chip  icon={<CheckCircleOutlineOutlinedIcon sx={{color: `${lightGreen[700]} !important`}}/>}label={params.value} sx={{color: lightGreen[700], backgroundColor:'rgba(15, 183, 107, 0.12)', fontWeight: 600}} size='small' />
-            );
-        case 'Cancelled': 
-            return (
-                <Chip icon={<CancelOutlinedIcon sx={{color: `${red[700]} !important`}}/>} label='Cancelled' sx={{color:red[700], backgroundColor:'rgba(242, 17, 54,0.12)', fontWeight: 600}} size='small'/>
-            );
-        case 'Upcoming':
-            return (
-                <Chip icon={<AlarmOutlinedIcon sx={{color: `${orange[700]} !important`}}/>} label='Upcoming' sx={{color:orange[700], backgroundColor: 'rgba(255, 152, 0,0.12) !important', fontWeight: 600}} size='small'/>
-            )
-        default:
-            return (
-                <Chip label={params.value} size='small'/>
-            )
-    }
-}
-
-export function RenderStatus(params) {
-    return (
-        <Box sx={{margin: 'auto'}}>
-            {getStatusChip(params)}
-        </Box>
     )
 }
 
